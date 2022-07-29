@@ -1,11 +1,12 @@
 let input = document.getElementById("unitario");
-let botonu = document.getElementById("precioUnitario");
+let botonu = document.getElementById("ingresar");
 let botont = document.getElementById("total");
 let lista = document.getElementById("lista");
-let preciototal: number = 0;
+let precioTotal: number = 0;
 
-function agregarProductos(): number[] {
-  let producto: number = input.value;
+function agregarProductos(): void {
+  let producto: number = Number(input.value);
+  precioTotal += producto;
 
   lista?.innerHTML += ` <li>${producto}</li> `;
 }
@@ -13,7 +14,7 @@ function agregarProductos(): number[] {
 botonu?.addEventListener("click", agregarProductos);
 
 function sumaTotal(): void {
-  lista?.innerHTML += `El total de la compra es $ ${preciototal.toString()} `;
+  lista?.innerHTML += `El total de la compra es $ ${precioTotal.toString()} `;
 }
 
 botont?.addEventListener("click", sumaTotal);
